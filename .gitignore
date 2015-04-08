@@ -1,0 +1,28 @@
+# bundler configs
+/.bundle
+
+# SQLite db files
+/db/*.sqlite3
+
+# log and temporary files
+/log/*.log
+/tmp
+
+# other unnecessary files
+doc/
+*.swp
+*~
+.project
+.DS_Store
+.idea
+
+# carrierwave uploaded files
+/public/uploads/
+
+/shared/
+
+# foreman
+/Procfile
+
+# capistrano files
+config/deploy/
