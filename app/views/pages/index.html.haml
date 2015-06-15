@@ -1,1 +1,8 @@
-%h1.page-header Index page {{1 + 3}}
+%h1.page-header Index page
+.row{ 'ng-controller' => 'BlogController as blog' }
+  .media{ 'ng-repeat' => 'post in blog.posts' }
+    .media-left
+      %img{ src: '{{post.cover}}' }
+    .media-body
+      %h4.media-heading {{post.title}}
+      {{post.body | cut:true:128:'...'}}
