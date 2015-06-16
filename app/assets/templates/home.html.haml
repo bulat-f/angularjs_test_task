@@ -1,1 +1,7 @@
-%h1 Home Page In My Project
+.media{ ng: { repeat: 'post in posts' } }
+  .media-left
+    %img{ src: '{{post.cover}}' }
+  .media-body
+    %h1.media-heading
+      %a{ href: '/#/posts/{{post.id}}' } {{post.title}}
+    {{post.body|cut:128:true:'...'}}
