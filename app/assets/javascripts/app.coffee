@@ -1,8 +1,23 @@
-app = angular.module('blog', [])
+app = angular.module('blog', ['ui.router'])
 
-app.controller 'BlogController', ->
-  @posts = posts
-  return
+app.config [
+  '$stateProvider'
+  '$urlRouterProvider'
+  ($stateProvider, $urlRouterProvider) ->
+    $stateProvider.state 'home',
+      url: '/'
+      template: '<h1> Index Page </h1>'
+      controller: 'HomeCtrl'
+    $urlRouterProvider.otherwise '/'
+    return
+  ]
+
+app.controller 'HomeCtrl', [
+  '$scope'
+  ($scope) ->
+    $scope.posts = posts
+]
+
 
 app.filter 'cut', ->
   (value, wordwise, max, tail) ->
