@@ -1,4 +1,7 @@
-app = angular.module('blog', ['ui.router'])
+app = angular.module('blog', ['ui.router', 'templates'])
+
+template = (path) ->
+  "assets/#{path}.html"
 
 app.config [
   '$stateProvider'
@@ -6,7 +9,7 @@ app.config [
   ($stateProvider, $urlRouterProvider) ->
     $stateProvider.state 'home',
       url: '/'
-      template: '<h1> Index Page </h1>'
+      templateUrl: template('home')
       controller: 'HomeCtrl'
     $urlRouterProvider.otherwise '/'
     return
