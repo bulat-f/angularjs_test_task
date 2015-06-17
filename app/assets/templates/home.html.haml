@@ -5,3 +5,15 @@
     %h1.media-heading
       %a{ href: '/#/posts/{{post.id}}' } {{post.title}}
     {{post.body|cut:true:128:'...'}}
+%nav
+  %ul.pagination
+    %li
+      %a{"aria-label" => "Previous", :href => "#"}
+        %span{"aria-hidden" => "true"} «
+    %li
+      %a{ href: '#/page/1' } 1
+    %li
+      %a{ href: '#/page/2' } 2
+    %li
+      %a{"aria-label" => "Next", :href => "#"}
+        %span{"aria-hidden" => "true"} »
