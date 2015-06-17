@@ -4,4 +4,4 @@
   .media-body
     %h1.media-heading
       %a{ href: '/#/posts/{{post.id}}' } {{post.title}}
-    {{post.body|cut:128:true:'...'}}
+    {{post.body|cut:true:128:'...'}}
