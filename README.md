@@ -1,7 +1,7 @@
-Rails Base app
+Test App in Ruby on Rails with AngularJs as front-end framework
 ==============
 
-This is the base Rails application template. It's based on Rails 4.2.0 and Ruby 2.2.0.
+It's based on Rails 4.2.0 and Ruby 2.2.1.
 
 Application gems
 ----------------
