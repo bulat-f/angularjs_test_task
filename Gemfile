@@ -10,6 +10,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
 
+gem 'will_paginate'
+
 gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
