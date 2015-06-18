@@ -14,8 +14,17 @@ angular
           templateUrl: template('home')
           controller: 'HomeCtrl'
           resolve:
-            posts: ['$http', ($http)->
-              $http.get('/posts').then (response)->
+            posts: ['$http', ($http) ->
+              $http.get('/posts').then (response) ->
+                response.data
+            ]
+        .state 'page',
+          url: '/page/{id}'
+          templateUrl: template('home')
+          controller: 'HomeCtrl'
+          resolve:
+            posts: ['$http', '$stateParams', ($http, $stateParams) ->
+              $http.get('/posts?page=' + $stateParams.id).then (response) ->
                 response.data
             ]
         .state 'posts',
@@ -23,8 +32,8 @@ angular
           templateUrl: template('posts')
           controller: 'PostsCtrl'
           resolve:
-            post: ['$http', '$stateParams', ($http, $stateParams)->
-              $http.get('/posts/' + $stateParams.id).then (response)->
+            post: ['$http', '$stateParams', ($http, $stateParams) ->
+              $http.get('/posts/' + $stateParams.id).then (response) ->
                 response.data
             ]
       $urlRouterProvider.otherwise '/'
