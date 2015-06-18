@@ -5,8 +5,9 @@ angular
     '$scope'
     'posts'
     ($scope, posts) ->
-      $scope.posts = posts
-      $scope.totalItems = 64
+      $scope.posts = posts.posts
+      $scope.totalItems = posts.total_entries
+      $scope.itemsPerPage = posts.per_page
       $scope.currentPage = 1
 
       $scope.setPage = (pageNo) ->
