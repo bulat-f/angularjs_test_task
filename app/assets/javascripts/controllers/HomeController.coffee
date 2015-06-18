@@ -3,12 +3,13 @@ angular
 
   .controller 'HomeCtrl', [
     '$scope'
+    '$stateParams'
     'posts'
-    ($scope, posts) ->
+    ($scope, $stateParams, posts) ->
       $scope.posts = posts.posts
       $scope.totalItems = posts.total_entries
       $scope.itemsPerPage = posts.per_page
-      $scope.currentPage = 1
+      $scope.currentPage = parseInt(posts.page, 10);
 
       $scope.setPage = (pageNo) ->
         $scope.currentPage = pageNo
