@@ -13,20 +13,10 @@ angular
           url: '/'
           templateUrl: template('home')
           controller: 'HomeCtrl'
-          resolve:
-            posts: ['$http', ($http) ->
-              $http.get('/posts').then (response) ->
-                response.data
-            ]
         .state 'page',
           url: '/page/{id}'
           templateUrl: template('home')
           controller: 'HomeCtrl'
-          resolve:
-            posts: ['$http', '$stateParams', ($http, $stateParams) ->
-              $http.get('/posts?page=' + $stateParams.id).then (response) ->
-                response.data
-            ]
         .state 'posts',
           url: '/posts/{id}'
           templateUrl: template('posts')

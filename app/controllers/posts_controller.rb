@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     per_page = 3
-    @posts = Post.paginate(page: params[:page], per_page: per_page)
+    @posts = Post.search(params[:search]).paginate(page: params[:page], per_page: per_page)
     render json: { total_entries: Post.count, page: params[:page], per_page: per_page, posts: @posts }
   end
 

@@ -2,21 +2,29 @@ angular
   .module('blog')
 
   .controller 'HomeCtrl', [
-    '$scope'
     '$stateParams'
-    'posts'
-    ($scope, $stateParams, posts) ->
-      $scope.posts = posts.posts
-      $scope.totalItems = posts.total_entries
-      $scope.itemsPerPage = posts.per_page
-      $scope.currentPage = parseInt(posts.page, 10);
+    '$scope'
+    '$http'
+    ($stateParams, $scope, $http) ->
+      get = (request, page) ->
+        request ||= ''
+        page ||= 1 
+        data = $http.get("/posts?search=#{request}&page=#{page}").then(
+          (response) ->
+            response.data
+        ).then (response)->
+          console.log response
+          $scope.posts = response.posts
+          $scope.totalItems = response.total_entries
+          $scope.itemsPerPage = response.per_page
+          $scope.currentPage = parseInt(response.page, 10)
+
+      get($scope.request, $stateParams.id)
+
+      $scope.search = ->
+        get($scope.request, $stateParams.id)
 
       $scope.setPage = (pageNo) ->
         $scope.currentPage = pageNo
         return
-
-      $scope.maxSize = 5
-      $scope.bigTotalItems = 175
-      $scope.bigCurrentPage = 1
-
   ]
