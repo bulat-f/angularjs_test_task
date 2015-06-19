@@ -6,4 +6,3 @@
       %a{ href: '/#/posts/{{post.id}}' } {{post.title}}
     {{post.body|cut:true:128:'...'}}
 %pagination{ ng: { model: 'currentPage' }, total: { items: 'totalItems' }, items: { per: { page: 'itemsPerPage' } } }
-{{currentPage}}
