@@ -1,0 +1,7 @@
+.media{ ng: { repeat: 'post in posts' } }
+  .media-left
+    %img{ src: '{{post.cover}}' }
+  .media-body
+    %h1.media-heading
+      {{post.title}}
+    {{post.body|cut:true:128:'...'}}

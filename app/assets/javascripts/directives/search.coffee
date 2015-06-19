@@ -7,5 +7,5 @@ angular
     {
       restrict: 'E'
       controller: 'SearchCtrl'
-      templateUrl: template('searchField')
+      templateUrl: template('search')
     }

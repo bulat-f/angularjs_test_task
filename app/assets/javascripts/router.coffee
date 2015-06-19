@@ -19,8 +19,8 @@ angular
           controller: 'HomeCtrl'
         .state 'search',
           url: '/search/{request}'
-          templateUrl: template('search')
-          controller: 'SearchCtrl'
+          templateUrl: template('found')
+          controller: 'FoundCtrl'
         .state 'posts',
           url: '/posts/{id}'
           templateUrl: template('posts')
