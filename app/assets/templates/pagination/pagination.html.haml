@@ -1,16 +1,16 @@
 %ul.pagination
   %li{ ng: { class: '{disabled: noPrevious()}', if: 'boundaryLinks' } }
-    %a{ href: '', ng: { click: 'selectPage(1, $event)' } }
+    %a{ ng: { click: 'selectPage(1, $event)' } }
       {{getText('first')}}
   %li{ ng: { class: '{disabled: noPrevious()}', if: 'directionLinks' } }
-    %a{ ui: { sref: 'page({id:{{page - 1}}})' }, ng: { click: 'selectPage(page - 1, $event)' } }
+    %a{ ng: { click: 'selectPage(page - 1, $event)' } }
       {{getText('previous')}}
   %li{ ng: { class: '{active: page.active}', repeat: 'page in pages track by $index' } }
-    %a{ ui: { sref: 'page({id:{{page.number}}})' }, ng: { click: 'selectPage(page.number, $event)' } }
+    %a{ ng: { click: 'selectPage(page.number, $event)' } }
       {{page.text}}
   %li{ ng: { class: '{disabled: noNext()}', if: 'directionLinks' } }
-    %a{ ui: { sref: 'page({id:{{page + 1}}})' }, ng: { click: 'selectPage(page + 1, $event)' } }
+    %a{ ng: { click: 'selectPage(page + 1, $event)' } }
       {{getText('next')}}
   %li{ ng: { class: '{disabled: noNext()}', if: 'boundaryLinks' } }
-    %a{ href: '', ng: { click: 'selectPage(totalPages, $event)' } }
+    %a{ ng: { click: 'selectPage(totalPages, $event)' } }
       {{getText('last')}}
