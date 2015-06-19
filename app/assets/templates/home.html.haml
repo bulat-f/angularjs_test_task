@@ -3,6 +3,6 @@
     %img{ src: '{{post.cover}}' }
   .media-body
     %h1.media-heading
-      %a{ href: '/#/posts/{{post.id}}' } {{post.title}}
+      %a{ ui: { sref: 'posts({ id: {{post.id}} })' } } {{post.title}}
     {{post.body|cut:true:128:'...'}}
 %pagination{ ng: { model: 'currentPage' }, total: { items: 'totalItems' }, items: { per: { page: 'itemsPerPage' } } }

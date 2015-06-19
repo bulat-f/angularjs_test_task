@@ -3,5 +3,5 @@
     %img{ src: '{{post.cover}}' }
   .media-body
     %h1.media-heading
-      {{post.title}}
+      %a{ ui: { sref: 'posts({ id: {{post.id}} })' } } {{post.title}}
     {{post.body|cut:true:128:'...'}}
