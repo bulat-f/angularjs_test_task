@@ -8,7 +8,7 @@ angular
     '$http'
     ($state, $stateParams, $scope, $http) ->
       page = $stateParams.id || 1
-      $http.get("/posts?&page=#{page}").then(
+      $http.get("/api/posts?&page=#{page}").then(
         (response) ->
           response.data
       ).then (response)->

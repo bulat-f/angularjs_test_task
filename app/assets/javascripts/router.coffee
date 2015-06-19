@@ -27,7 +27,7 @@ angular
           controller: 'PostsCtrl'
           resolve:
             post: ['$http', '$stateParams', ($http, $stateParams) ->
-              $http.get('/posts/' + $stateParams.id).then (response) ->
+              $http.get('/api/posts/' + $stateParams.id).then (response) ->
                 response.data
             ]
       $urlRouterProvider.otherwise '/'

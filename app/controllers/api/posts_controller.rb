@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Api::PostsController < ApplicationController
   def index
     per_page = 3
     @posts = Post.search(params[:search]).paginate(page: params[:page], per_page: per_page)

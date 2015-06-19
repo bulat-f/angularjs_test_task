@@ -8,7 +8,7 @@ angular
     '$http'
     ($state, $stateParams, $scope, $http) ->
       $scope.request = $stateParams.request || ''
-      $http.get("/posts?search=#{$scope.request}").then(
+      $http.get("/api/posts?search=#{$scope.request}").then(
         (response) ->
           response.data
       ).then (response)->
