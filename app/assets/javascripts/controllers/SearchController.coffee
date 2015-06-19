@@ -11,6 +11,5 @@ angular
       Posts.getSearch($scope.request).then (response) ->
         $scope.posts = response.posts
       $scope.search = ->
-        console.log $stateParams
-        $state.go($state.current.name, { request: $scope.request })
+        $state.go('search', { request: $scope.request })
   ]
