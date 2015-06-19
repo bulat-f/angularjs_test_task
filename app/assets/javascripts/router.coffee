@@ -25,11 +25,6 @@ angular
           url: '/posts/{id}'
           templateUrl: template('posts')
           controller: 'PostsCtrl'
-          resolve:
-            post: ['$http', '$stateParams', ($http, $stateParams) ->
-              $http.get('/api/posts/' + $stateParams.id).then (response) ->
-                response.data
-            ]
       $urlRouterProvider.otherwise '/'
       return
     ]

@@ -5,13 +5,10 @@ angular
     '$state'
     '$stateParams'
     '$scope'
-    '$http'
-    ($state, $stateParams, $scope, $http) ->
+    'Posts'
+    ($state, $stateParams, $scope, Posts) ->
       $scope.request = $stateParams.request || ''
-      $http.get("/api/posts?search=#{$scope.request}").then(
-        (response) ->
-          response.data
-      ).then (response)->
+      Posts.getSearch($scope.request).then (response) ->
         $scope.posts = response.posts
       $scope.search = ->
         console.log $stateParams

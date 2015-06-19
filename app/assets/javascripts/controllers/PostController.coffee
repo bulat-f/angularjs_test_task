@@ -2,9 +2,10 @@ angular
   .module('blog')
 
   .controller 'PostsCtrl', [
-    '$scope'
     '$stateParams'
-    'post'
-    ($scope, $stateParams, post) ->
-      $scope.post = post
+    '$scope'
+    'Posts'
+    ($stateParams, $scope, Posts) ->
+      Posts.getPost($stateParams.id).then (response) ->
+        $scope.post = response
     ]
