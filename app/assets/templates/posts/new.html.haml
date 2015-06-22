@@ -1,11 +1,13 @@
 %h1.text-center New Post
-%form{ novalidate: true }
+%form{ name: 'form', novalidate: true }
+  %ul
+    %li.text-danger{ ng: { show: 'form.title.$error.required' } } Title can't be blank
+    %li.text-danger{ ng: { show: 'form.body.$error.required' } } Body can't be blank
+    %li.text-danger{ ng: { show: 'form.body.$error.minlength' } } Body min lenght is 32
   .form-group
     %lable Title
-    %input.form-control{ type: 'text', ng: { model: 'post.title' } }
-
-  .form-group
+    %input.form-control{ type: 'text', name: 'title', required: true, ng: { model: 'post.title' } }
     %lable Body
-    %textarea.form-control{ ng: { model: 'post.body' } }
+    %textarea.form-control{ name: 'body', minlength: 32, required: true, ng: { model: 'post.body' } }
 
   %input.btn.btn-default{ type: 'submit', value: 'Save', ng: { click: 'create(post)' } }
