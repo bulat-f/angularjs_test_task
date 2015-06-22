@@ -8,5 +8,4 @@ angular
     ($stateParams, $scope, Posts) ->
       Posts.getPost($stateParams.id).then (response) ->
         $scope.post = response
-        console.log $stateParams
     ]
