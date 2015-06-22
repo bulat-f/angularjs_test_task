@@ -24,14 +24,14 @@ angular
         .state 'posts',
           url: '/posts'
           templateUrl: template('posts/posts')
-        .state 'posts.show',
-          url: '/show/{id}'
-          templateUrl: template('posts/show')
-          controller: 'PostsCtrl'
         .state 'posts.new',
           url: '/new'
           templateUrl: template('posts/new')
           controller: 'PostsNewCtrl'
+        .state 'posts.show',
+          url: '/{id}'
+          templateUrl: template('posts/show')
+          controller: 'PostsShowCtrl'
       $urlRouterProvider.otherwise '/'
       return
     ]

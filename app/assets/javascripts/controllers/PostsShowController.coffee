@@ -1,7 +1,7 @@
 angular
   .module('blog')
 
-  .controller 'PostsCtrl', [
+  .controller 'PostsShowCtrl', [
     '$stateParams'
     '$scope'
     'Posts'
