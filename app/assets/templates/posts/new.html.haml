@@ -1,0 +1,11 @@
+%h1.text-center New Post
+%form{ novalidate: true }
+  .form-group
+    %lable Title
+    %input.form-control{ type: 'text', ng: { model: 'post.title' } }
+
+  .form-group
+    %lable Body
+    %textarea.form-control{ ng: { model: 'post.body' } }
+
+  %input.btn.btn-default{ type: 'submit', value: 'Save', ng: { click: 'update(post)' } }
