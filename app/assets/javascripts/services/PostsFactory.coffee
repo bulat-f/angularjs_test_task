@@ -1,5 +1,4 @@
-angular
-  .module('blog')
+@app
   .factory 'Posts', [
     '$http'
     ($http) ->

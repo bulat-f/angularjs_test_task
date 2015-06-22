@@ -1,11 +1,7 @@
-template = (path) ->
-  "assets/#{path}.html"
-
-angular
-  .module('blog')
+@app
   .directive 'search', ->
     {
       restrict: 'E'
       controller: 'SearchCtrl'
-      templateUrl: template('search')
+      templateUrl: @template('search')
     }

@@ -1,6 +1,4 @@
-angular
-  .module('blog')
-
+@app
   .filter 'cut', ->
     (value, wordwise, max, tail) ->
       if !value

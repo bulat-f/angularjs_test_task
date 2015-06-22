@@ -1,6 +1,4 @@
-angular
-  .module('blog')
-
+@app
   .controller 'PostsNewCtrl', [
     '$state', '$scope', '$http'
     ($state, $scope, $http) ->

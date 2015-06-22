@@ -1,6 +1,4 @@
-angular
-  .module('blog')
-
+@app
   .controller 'PostsShowCtrl', [
     '$stateParams'
     '$scope'
