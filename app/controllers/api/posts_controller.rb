@@ -11,8 +11,7 @@ class Api::PostsController < Api::ApiController
   end
 
   def create
-    @post = Post.new post_params
-    puts post_params
+    @post = current_user.posts.build post_params
     if @post.save
       render json: { success: true, id: @post.id }
     else
