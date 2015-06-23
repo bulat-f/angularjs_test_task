@@ -1,0 +1,16 @@
+%ul.pagination
+  %li{ ng: { class: '{disabled: noPrevious()}', if: 'boundaryLinks' } }
+    %a{ ng: { click: 'selectPage(1, $event)' } }
+      {{getText('first')}}
+  %li{ ng: { class: '{disabled: noPrevious()}', if: 'directionLinks' } }
+    %a{ ng: { click: 'selectPage(page - 1, $event)' } }
+      {{getText('previous')}}
+  %li{ ng: { class: '{active: page.active}', repeat: 'page in pages track by $index' } }
+    %a{ ng: { click: 'selectPage(page.number, $event)' } }
+      {{page.text}}
+  %li{ ng: { class: '{disabled: noNext()}', if: 'directionLinks' } }
+    %a{ ng: { click: 'selectPage(page + 1, $event)' } }
+      {{getText('next')}}
+  %li{ ng: { class: '{disabled: noNext()}', if: 'boundaryLinks' } }
+    %a{ ng: { click: 'selectPage(totalPages, $event)' } }
+      {{getText('last')}}

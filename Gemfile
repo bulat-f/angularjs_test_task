@@ -10,6 +10,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
 
+gem 'will_paginate'
+
 gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
@@ -18,7 +20,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# gem 'bcrypt', '~> 3.1.7'
+gem 'devise'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 gem 'unicorn'

@@ -1,0 +1,8 @@
+.media{ ng: { repeat: 'post in posts' } }
+  .media-left
+    %img{ src: '{{post.cover}}' }
+  .media-body
+    %h1.media-heading
+      %a{ ui: { sref: 'posts.show({ id: {{post.id}} })' } } {{post.title}}
+    {{post.body|cut:true:128:'...'}}
+%pagination{ ng: { model: 'currentPage' }, total: { items: 'totalItems' }, items: { per: { page: 'itemsPerPage' } } }

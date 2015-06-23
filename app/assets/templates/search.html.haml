@@ -1,0 +1,4 @@
+.input-group
+  %input.form-control{ placeholder: 'Search for...', type: 'text', ng: { model: 'request' } }
+  %span.input-group-btn
+    %button.btn.btn-default{ type: 'button', ng: { click: 'search()' } } Go!
