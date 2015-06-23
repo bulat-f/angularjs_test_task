@@ -1,10 +1,12 @@
 class Api::PostsController < Api::ApiController
+  PER_PAGE = 3
+
   before_action :authenticate_user!, only: [:create]
 
   def index
-    per_page = 3
-    @posts = Post.search(params[:search]).paginate(page: params[:page], per_page: per_page)
-    render json: { total_entries: Post.count, page: params[:page] || 1, per_page: per_page, posts: @posts }
+    params[:page] = params[:page].to_i if params[:page]
+    @posts = Post.search(params[:search]).paginate(page: params[:page], per_page: PER_PAGE)
+    render json: { total_entries: Post.count, page: params[:page] || 1, per_page: PER_PAGE, posts: @posts }
   end
 
   def show
@@ -19,9 +21,9 @@ class Api::PostsController < Api::ApiController
   def create
     @post = current_user.posts.build post_params
     if @post.save
-      render json: { success: true, id: @post.id }
+      render json: { id: @post.id }, status: :created
     else
-      render json: { success: false }
+      render nothing: true, status: :forbidden
     end
   end
 
