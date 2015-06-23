@@ -10,4 +10,18 @@ RSpec.describe Api::PostsController, type: :controller do
       it { expect(response.body).to eq(json) }
     end
   end
+
+  describe '#show' do
+    let(:json) { post.to_json }
+
+    context 'exist post' do
+      before { get :show, { id: post.id } }
+      it { expect(response.body).to eq(json) }
+    end
+
+    context 'not exist post' do
+      before { get :show, { id: post.id + 1 } }
+      it { expect(response).to have_http_status(404) }
+    end
+  end
 end

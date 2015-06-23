@@ -7,7 +7,11 @@ class Api::PostsController < Api::ApiController
 
   def show
     @post = Post.find_by(id: params[:id])
-    render json: @post
+    if @post
+      render json: @post
+    else
+      render plain: '404 Not Found', status: 404
+    end
   end
 
   def create
