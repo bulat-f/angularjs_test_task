@@ -1,4 +1,6 @@
 class Api::PostsController < Api::ApiController
+  before_action :authenticate_user!, only: [:create]
+
   def index
     per_page = 3
     @posts = Post.search(params[:search]).paginate(page: params[:page], per_page: per_page)
