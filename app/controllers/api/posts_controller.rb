@@ -2,7 +2,7 @@ class Api::PostsController < Api::ApiController
   def index
     per_page = 3
     @posts = Post.search(params[:search]).paginate(page: params[:page], per_page: per_page)
-    render json: { total_entries: Post.count, page: params[:page], per_page: per_page, posts: @posts }
+    render json: { total_entries: Post.count, page: params[:page] || 1, per_page: per_page, posts: @posts }
   end
 
   def show
