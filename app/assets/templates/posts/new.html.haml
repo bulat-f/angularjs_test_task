@@ -1,4 +1,8 @@
 %h1.text-center New Post
+.alert.alert-warning{ ng: { hide: 'signed_in' } }
+  Please,
+  %a{ href: '/users/sign_in' }sign in
+  
 %form{ name: 'form', novalidate: true }
   %ul
     %li.text-danger{ ng: { show: 'form.title.$error.required' } } Title can't be blank

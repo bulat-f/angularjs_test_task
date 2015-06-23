@@ -1,5 +1,13 @@
-.page-header
-  %h1.text-center
-    %a{ ui: { sref: 'home' } }
-      Example page header
-      %small Subtext for header
+.page-header.navbar.navbar-default
+  .container
+    .navbar-header
+      %h1
+        %a{ ui: { sref: 'home' } }
+          Example page header
+          %small Subtext for header
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+        - else
+          %li= link_to 'Sign in', new_user_session_path
